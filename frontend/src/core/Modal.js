@@ -14,6 +14,7 @@ export default class Modal {
          hasTitle: true,
          hasFooter: true,
          hasMessage: true,
+         hasContent:true,
          zIndex: 15,
          css: 'center',
          shouldDetach: false,
@@ -173,7 +174,7 @@ export default class Modal {
       this.config.hasTitle && this.modal.append(this.title)
       this.config.hasMessage && this.modal.append(this.message)
 
-      this.modal.append(this.content)
+      this.config.hasContent && this.modal.append(this.content)
 
       this.config.hasFooter && this.modal.append(this.footer)
    }

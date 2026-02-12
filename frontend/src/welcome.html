@@ -20,7 +20,7 @@
         body {
             min-height: 100vh;
             background:
-                linear-gradient(rgba(0, 0, 0, 0.2),
+                linear-gradient(rgba(0, 0, 0, 0.6),
                     rgba(0,0, 0, 0.5)),
                 url('https://www.setglass.com.br/images/produtos/cortinas-e-persianas/cortinas-persianas-plissada-setglass.jpg');
             background-size: cover;
@@ -36,17 +36,24 @@
             max-width: 960px;
             height:100vh;
             padding: 48px 32px;
-            background:
+            /* background:
                 linear-gradient(rgba(0, 0, 0, 0.2),
                     rgba(0,0, 0, 0.5)),
-                url('https://www.setglass.com.br/images/produtos/cortinas-e-persianas/cortinas-persianas-plissada-setglass.jpg');
+                url('https://www.setglass.com.br/images/produtos/cortinas-e-persianas/cortinas-persianas-plissada-setglass.jpg'); */
             background-size: cover;
             background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .welcome-wrapper {
             text-align: center;
             margin-bottom: 32px;
+        }
+
+        .welcome {
+            text-align: center;
         }
 
         .welcome span {
@@ -113,21 +120,23 @@
 <body>
 
     <div class="wrapper">
-        <div class="welcome">
-            <span>Bem-vindo(a)</span>
-            <h1>
-                Olá, <strong>Rodrigo</strong><br>
-                17/12/2025 – (Individual)
-            </h1>
-        </div>
-
-        <div class="info">
-            Você ainda <strong>não está participando</strong> do Programa de Pontos:
-            <strong>AMOPONTOS 2025</strong>
-        </div>
-
-        <div class="cta">
-            <a href="./home.html">Clique aqui para participar</a>
+        <div>
+            <div class="welcome">
+                <span>Bem-vindo(a)</span>
+                <h1>
+                    Olá, <strong>Rodrigo</strong><br>
+                    17/12/2025 – (Individual)
+                </h1>
+            </div>
+    
+            <div class="info">
+                Você ainda <strong>não está participando</strong> do Programa de Pontos:
+                <strong>AMOPONTOS 2025</strong>
+            </div>
+    
+            <div class="cta">
+                <a href="./home.html">Clique aqui para participar</a>
+            </div>
         </div>
     </div>
 

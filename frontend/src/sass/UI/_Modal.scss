@@ -25,7 +25,7 @@
 
   width: 400px;
   max-width: 90%;
-  min-height: 470px;
+  min-height: auto;
   max-height: 95%;
 
   padding-top: 3rem;
@@ -60,6 +60,14 @@
 
   &.hasNoFooter {
     padding: 3rem !important;
+    text-align: center;
+
+    .SP__modal__message{
+      width: 100%;
+    } 
+    .SP__modal__title{
+      width: 100%;
+    }
   }
 
   &.isModelsModal {

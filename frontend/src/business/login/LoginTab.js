@@ -24,7 +24,8 @@ export default class LoginTab extends Tab {
       this.rightButton.removeClass('isFilled').addClass('isOutlined')
 
       //Formulário de login
-      this.loadingModal = new LoadingModal({ uniqueToken: 'LOGIN_LOADING', message: 'Estamos realizando seu login.' })
+      this.loadingModal = new LoadingModal({ uniqueToken: 'LOGIN_LOADING', message: 'Estamos realizando seu login.', hasContent:false })
+      //  this.loadingModal.openModal()
       this.loginForm = new InputForm({ inputs: this.getFields(), showRequired: false })
       this.loginButton = new Button('SP__content__button-filled')
       this.rememberMeButton = this.createRememberMeButton()
@@ -214,13 +215,14 @@ export default class LoginTab extends Tab {
 
    goToDashboard() {
       PopUp.triggerSuccess('Login realizado com sucesso. Você será redirecionado.', this.tab, 'LOGIN_SUCCESS')
-      window.location.href = './dashboard.html'
+      window.location.href = './welcome.html'
    }
 
    openLoadingModal() {
       new LoadingModal({
          title: 'Realizando login',
          message: 'Você será redirecionado.',
+         hasContent:false
       }).openModal()
    }
 
@@ -270,7 +272,7 @@ $('body').append(
       .text('Entrar')
       .click(async () => {
          UserStorage.isSessionOkay()
-            ? window.location.href = './dashboard.html'
+            ? window.location.href = './welcome.html'
             : new LoginTab().open()
       })
 )
