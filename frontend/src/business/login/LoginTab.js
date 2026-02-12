@@ -29,6 +29,7 @@ export default class LoginTab extends Tab {
       this.loginButton = new Button('SP__content__button-filled')
       this.rememberMeButton = this.createRememberMeButton()
       this.rememberUser = false
+      this.loginForm.form.css({flexDirection:'column'})
 
       //Configurando Botão
       this.tab.attr('id', 'LOGIN_FORM')
