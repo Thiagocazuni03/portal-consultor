@@ -17,15 +17,18 @@ export default defineConfig({
       outDir: '../dist',
       emptyOutDir: true,
       rollupOptions: {
-         input: [
-            'src/catalog.html',
-            'src/dashboard.html',
-            'src/downloads.html',
+         input: [ 
+            'src/home.html',
+            'src/welcome.html',
             'src/index.html',
-            'src/partners.html',
-            'src/price.html',
-            'src/view.html', 
-            'src/sales.html',
+            // 'src/catalog.html',
+            // 'src/dashboard.html',
+            // 'src/downloads.html',
+            // 'src/index.html',
+            // 'src/partners.html',
+            // 'src/price.html',
+            // 'src/view.html', 
+            // 'src/sales.html',
          ]
       }
    }
