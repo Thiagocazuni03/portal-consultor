@@ -1,0 +1,292 @@
+.SP__sheet {
+  width: 100%;
+  height: min-content;
+  position: relative;
+  border-radius: 6px;
+
+  //Removendo a scrollbar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__table {
+    width: 100%;
+    height: min-content;
+
+    &__footer {
+      background-color: $secondary;
+      width: 100%;
+
+      &__item {
+        color: $primary;
+        padding: 1rem;
+        font-weight: bold;
+        line-height: 1.5;
+        vertical-align: middle;
+      }
+    }
+
+    &__head {
+      background-color: $secondary;
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+      border-bottom: 1px solid $fourth;
+
+      &__item {
+        color: $primary;
+        padding: 1rem 0;
+        font-weight: bold;
+        line-height: 1.5;
+        vertical-align: middle;
+        text-transform: capitalize;
+
+        &:last-child {
+          border-top-right-radius: 8px;
+        }
+
+        &:first-child {
+          border-top-left-radius: 8px;
+        }
+
+        &:first-child[style*="text-align: left"] {
+          padding-left: 1rem;
+        }
+
+        &:last-child[style*="text-align: right"] {
+          padding-right: 1rem;
+        }
+      }
+    }
+
+    //O corpo da tabela
+    &__body {
+      height: min-content;
+
+      //Cada linha
+      &__row {
+
+        //Criando as faixas
+        &:nth-child(odd) {
+          .SP__sheet__table__body__row__column {
+            background-color: $third;
+          }
+        }
+
+        //Arredondando a parte de baixo da tabela
+        &:last-of-type {
+          .SP__sheet__table__body__row__column:first-child {
+            border-bottom-left-radius: 8px;
+          }
+
+          .SP__sheet__table__body__row__column:last-child {
+            border-bottom-right-radius: 8px;
+          }
+        }
+
+        //Cada coluna
+        &__column {
+          vertical-align: middle;
+          text-align: center;
+          padding: 1rem 0;
+          position: relative;
+          color: $primary;
+          white-space: pre-wrap;
+          line-height: 1.5;
+
+          &:last-child {
+            border-radius: 0 6px 6px 0;
+          }
+
+          &:first-child {
+            border-radius: 6px 0 0 6px;
+          }
+
+          &:first-child[style*="text-align: left"] {
+            padding-left: 1rem;
+          }
+
+          &:last-child[style*="text-align: right"] {
+            padding-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  &.isScrollabe {
+    border-radius: 6px 6px 6px;
+
+    .SP__sheet__table__head {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+
+      // .SP__sheet__table__head__item {
+      //   display: inline-block;
+      // }
+    }
+
+    .SP__sheet__table__body {
+      height: 100%;
+
+      &:has(.SP__loader),
+      &:has(.SP__empty) {
+        position: absolute !important;
+        top: calc(100% + 250px) !important;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        height: 300px;
+      }
+    }
+  }
+
+  &.isBordered,
+  &.isFinishedOrderTable {
+    border: 1px solid $third;
+
+    .SP__sheet__table__body__row {
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $third;
+      }
+
+      &:nth-child(even) {
+        .SP__sheet__table__body__row__column {
+          background-color: $secondary;
+        }
+      }
+    }
+  }
+
+  &.isDatasheetSheet {
+    .SP__sheet__table__head {
+      border: 1px solid $fourth;
+      border-radius: 6px;
+
+      &__item {
+        padding-top: 0.75rem;
+        font-size: 15px;
+        padding-bottom: 0.75rem;
+      }
+    }
+
+    .SP__sheet__table__body:not(.SP__sheet__table__body:has(> .SP__sheet__table__body__row)) ~ .SP__sheet__table__footer{
+      display: none;
+    }
+
+    .SP__sheet__table__body__row__column {
+      font-size: 14px;
+    }
+  }
+
+  // &.isSalesSheet {
+  //   padding-bottom: 8rem;
+  // }
+
+
+    &.isFilter {
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      overflow-y: auto;
+  
+      // Tabela ocupa altura disponível
+      .SP__sheet__table {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        table-layout: fixed !important;
+        max-width: 100% !important;
+        height:200px !important;
+      }
+  
+      // Cabeçalho no topo (altura automática)
+      .SP__sheet__table__head {
+        position:absolute !important;
+        z-index: 1 !important;
+        flex-shrink: 0 !important;
+        display: table !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        background-color: $secondary !important;
+  
+        tr {
+          display: table-row !important;
+        }
+  
+        &__item {
+          display: table-cell !important;
+        }
+      }
+  
+      // Corpo com altura FIXA e scroll 
+      .SP__sheet__table__body {
+        flex: 0 0 calc(100% - 20px) !important;   // Altura FIXA
+        height: calc(100% - 20px) !important;  
+        max-height: calc(100% - 20px) !important;  
+        overflow-y:scroll;
+        display: block !important;
+        padding-bottom:50px;
+        
+  
+        // Mantém layout de tabela para as linhas
+        &__row {
+          display: table !important;
+          width: 100% !important;
+          table-layout: fixed !important;
+  
+          &__column {
+            display: table-cell !important;
+          }
+        }
+      }
+    }
+  &.isFormulasSheet {
+    .SP__sheet__table__head__item {
+      padding: 0.5rem 0;
+      font-size: 18px;
+    }
+
+    .SP__sheet__table__body__row__column {
+      padding: 0.5rem 0;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem;
+    outline: none;
+
+    &.isBold {
+      font-weight: 700;
+    }
+  }
+
+  &__block {
+    margin: 0 auto;
+    width: fit-content;
+    text-align: left;
+    color: $primary;
+  }
+
+  &__bold {
+    font-weight: 700;
+  }
+
+  &__capitalize{
+    text-transform: capitalize;
+  }
+
+  &__desc {
+    color: $fifth;
+    font-weight: 400;
+  }
+
+  &__pointer{
+    cursor: pointer;
+  }
+}

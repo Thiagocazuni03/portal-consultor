@@ -1,0 +1,162 @@
+.SP__tooltip {
+  background-color: $fifth;
+  padding: 0.5rem;
+  position: absolute;
+  border-radius: 6px;
+  width: fit-content;
+  opacity: 0;
+  transition: 200ms;
+  opacity: 0;
+  z-index: 5;
+  font-size: 14px;
+  white-space: nowrap;
+
+  &__header,
+  &__content,
+  &__footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
+  }
+
+  &.flexContent{
+    .SP__tooltip__content{
+      flex-direction: row;
+      column-gap: 0.5rem;
+      row-gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  &.isShown {
+    opacity: 1;
+  }
+
+  &::before{
+    content: '';
+    background-color: inherit;
+    width: 12px;
+    height: 8px;
+    position: absolute;
+    z-index: 7;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  //De baixo
+  &.bottom {
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translate(-50%, 0%) scale(0);
+    transform-origin: center top;
+
+    &::before{
+      bottom: calc(100% - 1px);
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    &.isShown {
+      transform: translate(-50%, 0%) scale(1)
+    }
+  }
+
+  //Em baixo
+  &.top {
+    bottom: calc(100% + 1rem);
+    left: 50%;
+    transform: translate(-50%, 0%) scale(0);
+    transform-origin: center bottom;
+
+    &::before{
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 0) rotate(180deg);
+    }
+
+    &.isShown {
+      transform: translate(-50%, 0%) scale(1)
+    }
+  }
+
+  //Na esquerda
+  &.left {
+    top: 50%;
+    right: calc(100% + 1rem);
+    transform: translate(0%, -50%) scale(0);
+    transform-origin: center right;
+
+    &::before{
+      top: 50%;
+      left: calc(100% - 3px);
+      transform: translate(0%, -50%) rotate(90deg);
+    }
+
+    &.isShown {
+      transform: translate(0, -50%) scale(1)
+    }
+  }
+
+  //Na direita
+  &.right {
+    top: 50%;
+    left: calc(100% + 1rem);
+    transform: translate(0%, -50%) scale(0);
+    transform-origin: center left;
+
+    &::before{
+      top: 50%;
+      right: calc(100% - 3px);
+      transform: translate(0%, -50%) rotate(-90deg);
+    }
+    
+    &.isShown {
+      transform: translate(0%, -50%) scale(1)
+    }
+  }
+
+  &__text {
+    color: inherit;
+    font-size: inherit;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  &__dot {
+    color: inherit;
+    font-size: 14px;
+    line-height: 1.35;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+    column-gap: 0.5rem;
+    text-align: left;
+    white-space: pre-wrap;
+
+    &::before{
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: white;
+    }
+  }
+
+  &__title {
+    color: inherit;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  &__badge {
+    color: inherit;
+    font-size: 14px;
+    padding: 0.25rem;
+    border-radius: 4px;
+    background-color: $fourth;
+    color: $primary;
+  }
+}

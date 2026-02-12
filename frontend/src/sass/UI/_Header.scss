@@ -1,0 +1,75 @@
+.SP__header {
+  z-index: 5;
+  background-color: $secondary;
+  grid-area: header;
+  padding: 1rem $mobile-side-padding;
+  border-bottom: 1px solid $fourth;
+  align-items: center;
+  width: 100%;
+  column-gap: 2rem;
+  justify-content: space-between;
+  display: flex;
+
+
+  &.hasBorderBottom{
+    border-bottom: 1px solid $fourth !important;
+  }
+
+  &.isProductPreview {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-areas: 'info options';
+  }
+
+
+  &__options {
+    margin-right:1rem;
+    width: min-content;
+    height: 100%;
+    grid-area: options;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    justify-content: flex-end;
+    z-index: 2;
+
+    &__icon {
+      cursor: pointer;
+      color: $fifth;
+      width: 26px;
+      height: 26px;
+      position: relative;
+    }
+  }
+
+  .SP__header__info > .SP__header__info__title,
+  &__title {
+    @include font(24px, $primary, 500);
+    grid-area: title;
+  }
+}
+
+@media screen and (min-width: $tablet-screen-size) {
+  .SP__header{
+    padding: 1rem $tablet-side-padding;
+  }
+  .SP__header__title{
+    font-size: 28px; 
+  }
+  .SP__header__options__icon{
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: $desktop-screen-size) {
+  .SP__header{
+    padding: 1rem $desktop-side-padding;
+  }
+  .SP__header__title{
+    margin-left:1rem;
+    font-size: 32px; 
+  }
+  .SP__header__options__icon{
+    font-size: 40px;
+  }
+}

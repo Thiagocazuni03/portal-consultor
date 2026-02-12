@@ -1,0 +1,80 @@
+////////////////////////////////////////
+///               CARD               ///
+////////////////////////////////////////
+
+//CSS aplicado aos cards de produtos e downloads
+
+.SP__card {
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  opacity: 0;
+  transition: 0.2s;
+  background-color: $secondary;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+
+  &::after {
+    content: '';
+    background-color: var(--shadow);
+    filter: blur(10px);
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    transform: translate(-50%);
+    height: 20px;
+    position: absolute;;
+    bottom: -10px;
+    left: 50%;
+    opacity: 0;
+    transition: 300ms;
+  }
+
+  &:hover{
+    transform: translateY(-10px);
+    &::after{ opacity: 1 }
+  }
+
+  //A imagem
+  &__thumb {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+
+  //A seção de informações
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    padding: 0.75rem;
+    text-align: center;
+    background-color: $secondary;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    z-index: 2;
+    position: relative;
+    height: 100%;
+
+    //A marca do produto
+    &__brand {
+      @include font(10px, $fifth, 700);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    //O título
+    &__title {
+      @include font(19px, $primary, 700);
+      line-height: 1.2;
+    }
+
+    //As tags do produto
+    &__tags {
+      @include font(13px, $fifth, 700);
+      line-height: 1.5;
+    }
+  }
+}

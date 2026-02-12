@@ -1,0 +1,37 @@
+.SP__details{
+  padding: 1rem 2rem;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+
+  &__info{
+    margin: 3rem 0;
+    margin-top: 2rem;
+    width: 80%;
+    line-height: 1.2;
+
+    &__title{
+      @include font(26px, $primary, 500);
+      margin-bottom: 1rem;
+    }
+
+    &__message{
+      @include font(18px, $fifth, 500)
+    }
+
+    &__icon{
+      @include font(80px, $orange, 500);
+      position: absolute;
+      top: 5rem;
+      right: 2rem;
+      transform: scaleX(-1)
+    }
+  }
+
+  &__title{
+    @include font(22px, $primary, 500);
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    // border-bottom: 1px solid $fourth;
+  }
+}

@@ -1,0 +1,48 @@
+@mixin font(
+    $size,
+    $color, 
+    $weight: 400
+  ){
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+}
+
+@mixin flexCenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin absCenter{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin infoAbsoluteMessage($message, $size: 18px, $width: 40%){
+  &::after{
+    @include absCenter;
+    @include font($size, $fifth, 400);
+    content: $message;
+    transform: translate(-50%, 14px);
+    text-align: center;
+    width: $width;
+    padding: 2rem;
+    line-height: 1.35;
+    box-sizing: border-box;
+    animation: appear 1s;
+  }
+  &::before{
+    @include absCenter;
+    @include font($size * 3, $fifth, 400);
+    transform: translate(-50%, -40px);
+    padding: 2rem;
+    font-family: "Allinsys";
+    text-align: center;
+    width: 100%;
+    animation: appear 1s;
+    box-sizing: border-box;
+  }
+}

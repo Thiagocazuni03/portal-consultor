@@ -1,0 +1,26 @@
+.checkbox {
+  display: block;
+  position: relative;
+  border-radius: 4px;
+  transition: 150ms;
+  cursor: pointer;
+
+  &.isActive {
+    background-color: var(--active-color) !important;
+
+    .checkbox__icon {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    color: white;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 150ms;
+  }
+}

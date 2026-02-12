@@ -1,0 +1,431 @@
+.button-tab-sc {
+  border-radius: 6px;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--green2);
+  color:var(--green2);
+  max-height:50px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-tab-wr {
+  border-radius: 6px;
+  border: 1px solid var(--red);
+}
+
+.SP__register-visit {
+
+}
+
+.SP__points-program__extract-tab {
+  padding: 1rem;
+  background-color: $secondary;
+  border-radius: 6px;
+  border: 1px solid $fourth;
+  margin-bottom: 1rem;
+
+  &__message {
+    margin-top:10px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--green);
+    border-radius: 6px;
+    padding: 1rem;
+    color: $fifth;
+  }
+
+  &__title {
+    margin: 15px 0px;
+    font-size: 24px;
+  }
+ 
+ 
+}
+
+/* ===============================
+   BONUS TAB
+================================ */
+.SP__visit-report-tab {
+    overflow-y: scroll;
+    min-height:100%;
+    padding: 1rem;
+    color:black;
+    background-color: $secondary;
+    border-radius: 6px;
+    border: 1px solid $fourth;
+  /* Header / containers internos */
+  .bonus-hd {
+    >* {
+      margin-top: 15px;
+    }
+  }
+
+  /* Label padrão */
+  label {
+    display: block;
+    /* 🔑 força ficar em cima */
+    font-size: 14px !important;
+    // margin-bottom: 8px;
+    width: 100%;
+  }
+}
+
+.SP__consult-client-tab {
+    padding: 1rem;
+    color: black;
+    background-color: $secondary;
+    border-radius: 6px;
+    border: 1px solid $fourth;
+    min-height:100%;
+  
+    /* Header / containers internos */
+    .client-hd {
+      max-height: 100%;
+      overflow: hidden;
+      >* {
+        margin-top: 15px;
+      }
+    }
+  
+    /* Label padrão */
+    label {
+      display: block;
+      /* 🔑 força ficar em cima */
+      font-size: 14px !important;
+      // margin-bottom: 8px;
+      width: 100%;
+    }
+
+    &__select-wrapper{
+      width: 100%;
+      align-items: center;
+      display: flex;
+      >*{
+        margin-right: 10px;
+      }
+    }
+}
+
+/* ===============================
+   INPUT FIELD
+================================ */
+.SP__input {
+  // display: flex;
+  // flex-direction: column;
+  /* 🔑 */
+  gap: 8px;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--fourth);
+    border-radius: 6px;
+    color: var(--primary);
+    // background-color: var(--third);
+    outline: none;
+  }
+}
+
+/* ===============================
+   TEXTAREA FIELD
+================================ */
+.SP__textarea {
+  display: flex;
+  flex-direction: column;
+  /* 🔑 */
+  gap: 8px;
+
+  width: 90%;
+  // padding: 1rem;
+  min-height: 150px;
+  max-height: 250px;
+  resize: vertical;
+
+  border-radius: 6px;
+  // background-color: var(--third);
+  color: var(--primary);
+  border: none;
+
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+    border: 1px solid var(--fourth);
+    border-radius: 6px;
+    padding: 0.75rem;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+  }
+}
+
+/* ===============================
+   PADRÃO GLOBAL (OPCIONAL)
+   Caso existam campos fora do tab
+================================ */
+.SP__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    display: block;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+  }
+}
+
+
+.SP__tab {
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  z-index: 11;
+  overflow: visible !important;
+  background-color: $secondary;
+  box-shadow: 0 0 10px 5px transparent;
+
+  &.isOpen{
+    box-shadow: 0 0 10px 5px var(--shadow);
+  }
+
+  &.hasContentSidePadding {
+    .SP__content {
+      padding-left: $mobile-side-padding;
+      padding-right: $mobile-side-padding;
+    }
+  }
+
+  &.useFlexColumn {
+    .SP__content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+    }
+  }
+
+  &.isMarkupContent {
+    .SP__content {
+      padding-bottom: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  &.isFull {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  //Header da tab
+  .SP__header {
+    grid-template-columns: 1fr;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid transparent;
+
+    &.alignOptionsCenter{
+      .SP__header__options{
+        align-items: center;
+      }
+    }
+
+    //A parte de informações
+    .SP__header__info {
+      width: 100%;
+      height: min-content;
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.5rem;
+
+      &__description {
+        color: $fifth;
+        line-height: 1.2;
+      }
+    }
+
+    .SP__header__options {
+  
+      align-items: flex-start;
+
+      .SP__header__options__icon {
+        @include font(32px, $fifth, 500);
+        transition: 100ms;
+
+        &.isOrange{
+          color: $orange;
+        }
+
+        &.animateShake{
+          animation: 400ms shake ease-out;
+        }
+
+        &:hover {
+          scale: 1.2;
+        }
+      }
+    }
+  }
+
+
+
+
+  //Animação de abrir da direita
+  &.SP__slide {
+    top: 0;
+    right: 0;
+    transition: 300ms;
+    transform: translateX(100%);
+
+    &.isShown {
+      transform: translateX(0%)
+    }
+  }
+
+  //Animação de abrir da direita
+  &.SP__slide-up {
+    top: 100%;
+    right: 0;
+    transition: 300ms;
+
+    &.isShown {
+      top: 0%;
+    }
+  }
+
+  //Animação de abrir da esquerda
+  &.SP__slide-reverse {
+    top: 0;
+    left: 0;
+    transition: 300ms;
+    transform: translateX(-100%);
+
+    &.isShown {
+      transform: translateX(0%)
+    }
+  }
+
+  //Animação de aparecer
+  &.SP__appear {
+    top: 0;
+    right: 0;
+    transition: 500ms;
+
+    &.isShown {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &.isFullLeft {
+    width: 100%;
+    min-width: 100%;
+    box-shadow: none;
+    border-right: 1px solid var(--fourth);
+  }
+
+  &.isOffset {
+    transition: all 0 !important;
+    top: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  &.isOrderDetailsTab {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.isProductPriceTab {
+    .SP__content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      padding: 2rem 0;
+    }
+  }
+
+  &.isProductPriceListTab {
+    .SP__salesWrapper {
+      overflow: hidden;
+      width: 100%;
+      transform: translateY(0px);
+      height: 100%;
+
+      .SP__sheet {
+        height: 100%;
+        overflow: scroll;
+
+        .SP__sheet__table__head {
+          border-right: 2px solid $fourth;
+        }
+      }
+    }
+
+    .SP__content {
+      display: grid;
+      grid-template-rows: min-content 1fr;
+    }
+  }
+
+  &.isUserTerms {
+    max-width: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: none;
+
+    .SP__header {
+      grid-template-columns: 100%;
+    }
+
+    &[active=false] {
+      opacity: 0;
+    }
+
+    &[active=true] {
+      opacity: 1;
+    }
+  }
+
+  &.isDatasheetTab {
+    width: 100%
+  }
+
+}
+
+@media screen and (min-width: $tablet-screen-size) {
+  .SP__tab.hasContentSidePadding {
+    .SP__content {
+      padding-left: $tablet-side-padding;
+      padding-right: $tablet-side-padding;
+    }
+  }
+
+  .SP__tab.isFullLeft {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+@media screen and (min-width: $desktop-screen-size) {
+  .SP__tab.hasContentSidePadding {
+    .SP__content {
+      padding-left: $desktop-side-padding;
+      padding-right: $desktop-side-padding;
+    }
+  }
+
+  .SP__tab.SP__tab.isFullLeft {
+    width: calc(100% - 500px);
+    min-width: 700px;
+    max-width: 100%;
+  }
+}

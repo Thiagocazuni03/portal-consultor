@@ -1,0 +1,63 @@
+.SP__more {
+  cursor: pointer;
+  color: $primary;
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+
+  //O ícone
+  &__icon {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  //O menu
+  &__menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    padding: 0.25rem 1rem;
+    background-color: $secondary;
+    border: 1px solid $fourth;
+    border-radius: 6px;
+    transform-origin: 80% top;
+    transform: scale(0);
+    transition: 300ms;
+    min-width: 130px;
+    display: flex;
+    flex-direction: column;
+
+    //Caso estiver aberto
+    &.isShown {
+      transform: scale(1);
+    }
+
+    //Cada opção
+    &__option {
+      padding: 0.65rem 0;
+      display: flex;
+      line-height: 1.2;
+      column-gap: 0.65rem;
+      align-items: center;
+
+      &__text {
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+
+      //Linha em baixo dos items
+      &:not(:last-child):not(:only-child) {
+        border-bottom: 1px solid $fourth;
+      }
+
+      &__icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}

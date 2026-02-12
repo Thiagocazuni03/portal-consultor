@@ -1,0 +1,168 @@
+.SP__render {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+
+  //A mensagem de quando não há nada
+  &__message {
+    @include font(16px, $fifth, 500);
+    margin: 0 2.5rem;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    cursor: pointer;
+    animation: appear 1s;
+  }
+
+  //O botão de voltar para cima
+  &__start {
+    @include font(20px, $primary, 400);
+    @include flexCenter;
+    width: 1px;
+    height: 1px;
+    overflow: visible;
+    margin-left: auto;
+    position: sticky;
+    box-sizing: content-box;
+    top: calc(100% - 50px);
+    margin-right: $mobile-side-padding;
+    z-index: 7;
+    box-shadow: 0 5px 5px var(--shadow);
+    transition: 300ms;
+    cursor: pointer;
+
+    &::before {
+      background-color: $secondary;
+      border: 1px solid $fourth;
+      border-radius: 6px;
+      font-weight: bold;
+      padding: 0.5rem;
+      margin-right: $mobile-side-padding * 1.2;
+    }
+
+    &[active=true] {
+      transform: scale(1);
+    }
+
+    &[active=false] {
+      transform: scale(0);
+    }
+  }
+
+  //O grid com os items
+  &__grid {
+    width: 100%;
+    height: min-content;
+    display: grid;
+    padding: 0 $mobile-side-padding;
+
+    &__simple {
+      white-space: pre-wrap;
+      border-bottom: 1px solid $fifth;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &.hasMarginTop{
+    margin-top: 1rem;
+  }
+
+  &.isSaleDetailsRender,
+  &.isSaleViewRender {
+    height: auto;
+    overflow: visible;
+    padding: 0 !important;
+
+    &:has(.SP__empty) {
+      min-height: 65px;
+    }
+
+    .SP__render__grid {
+      padding: 0;
+    }
+
+    &:is(.isSaleDetailsRender) {
+      .SP__empty {
+        width: 100% !important;
+      }
+    }
+
+    .SP__empty {
+      width: 100%;
+      display: flex;
+      max-width: none;
+      position: static;
+      transform: none;
+      justify-content: flex-start;
+      flex-direction: row;
+      column-gap: 1rem;
+      padding: 1rem;
+      border: 1px solid $fourth;
+      background-color: transparent;
+      border-radius: 6px;
+
+
+      &__message {
+        font-size: 15px;
+        color: $primary;
+      }
+
+      &__icon {
+        width: 27px;
+        height: 27px;
+        color: $primary;
+      }
+    }
+  }
+
+  &.isRuleRender {
+    .SP__render__grid {
+      padding-bottom: 8rem !important;
+    }
+  }
+
+  &.noInnerPadding {
+    .SP__render__grid {
+      padding: 0;
+    }
+  }
+
+  &.isCartTabRender {
+    height: min-content;
+    margin-bottom: 1rem;
+    overflow: unset !important;
+  }
+
+  &.isSaleDetailsRender {
+    .SP__render__grid {
+      padding: 0 !important
+    }
+  }
+}
+
+@media screen and (min-width: $tablet-screen-size) {
+  .SP__render__grid {
+    padding: 0 $tablet-side-padding;
+  }
+
+  .SP__render__start {
+    margin-right: $tablet-side-padding;
+    font-size: 22px;
+    &::before{
+      margin-right: $tablet-side-padding * 1.6;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-screen-size) {
+  .SP__render__grid {
+    padding: 0 $desktop-side-padding;
+  }
+
+  .SP__render__start {
+    margin-right: $desktop-side-padding;
+    font-size: 24px;
+  }
+}

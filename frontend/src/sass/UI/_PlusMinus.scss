@@ -1,0 +1,46 @@
+.SP__plusminus{
+  @include flexCenter;
+
+  &__plus, &__minus{
+    @include flexCenter;
+    width: 40px;
+    height: 40px;
+    background-color: $third;
+    color: $primary;
+    padding: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:first-child{
+      border-radius: 6px 0 0 6px;
+    }
+
+    &:last-child{
+      border-radius: 0 6px 6px 0;
+    }
+  }
+
+  &__text{
+    height: 40px;
+    display: block;
+    text-align: center;
+    width: 65px;
+    border: none;
+    outline: none;
+    background-color: $third;
+    color: $primary;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__plus, &__minus, &__text{
+    transition: 200ms;
+    &:hover{
+      background-color: $fourth;
+    }
+  }
+  
+  &.isDuplicateProductPlusMinus{
+    margin-bottom: 3rem;
+  }
+}

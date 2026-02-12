@@ -1,0 +1,298 @@
+////////////////////////////////////////
+///              MODAL               ///
+////////////////////////////////////////
+
+.SP__modal {
+
+  /* ===============================
+     POSICIONAMENTO
+  =============================== */
+
+  &.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; // 🔥 IMPORTANTE
+  }
+
+  &.lg {
+    width: 80vw;
+  }
+
+  &.pd {
+    padding: 1rem;
+  }
+
+  width: 400px;
+  max-width: 90%;
+  min-height: 470px;
+  max-height: 95%;
+
+  padding-top: 3rem;
+  padding-bottom: 100px;
+
+  background-color: $secondary;
+  border-radius: 12px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, -50%) scale(0);
+  transition: 350ms;
+
+  &.isShown {
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: all;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  /* ===============================
+     MODIFICADORES
+  =============================== */
+
+  &.hasNoFooter {
+    padding: 3rem !important;
+  }
+
+  &.isModelsModal {
+    padding: 0;
+    padding-bottom: 100px;
+    min-height: 0;
+  }
+
+  &.isPantoneModal:not(.SP__overlay),
+  &.isFormModal:not(.SP__overlay) {
+    max-height: 95vh;
+  }
+
+  &.isFormModal:not(.SP__overlay) {
+    padding-top: 1rem;
+  }
+
+  &.isNoCombinationModal {
+    min-height: 250px;
+    padding-top: 1rem;
+  }
+
+  &.isSelectorModal {
+    padding-top: 3rem !important;
+    min-height: 250px !important;
+
+    .SP__loader {
+      transform: translate(-50%, -30px);
+    }
+  }
+
+  &.isDetailsModal {
+    width: 90%;
+    height: 90%;
+  }
+
+  &.noMinHeight {
+    min-height: 0;
+  }
+
+  /* ===============================
+     ICONES SUPERIORES
+  =============================== */
+
+  &__rightTopIcon,
+  &__leftTopIcon {
+    @include font(35px, $fifth, 400);
+    @include flexCenter;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  &__leftTopIcon {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &__rightTopIcon {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  /* ===============================
+     ÍCONE PRINCIPAL
+  =============================== */
+
+  &__icon {
+    color: $primary;
+    width: 110px;
+    height: 110px;
+
+    &.SP__animation__rotate {
+      animation: 1.5s rotate ease-in-out infinite;
+    }
+  }
+
+  /* ===============================
+     TÍTULO E TEXTO
+  =============================== */
+
+  &__title {
+    @include font(30px, $primary, 600);
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    width: 80%;
+    text-align: center;
+  }
+
+  &__message {
+    @include font(16px, $primary, 500);
+    width: 70%;
+    text-align: center;
+    line-height: 1.25;
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    @include font(14px, $primary, 500);
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $fifth;
+    outline: none;
+    padding: 0.5rem 0;
+  }
+
+  /* ===============================
+     CONTEÚDO CENTRAL (🔥 AJUSTADO)
+  =============================== */
+
+  &__content {
+    flex: 1; // 🔥 ocupa o espaço correto
+    width: 100%;
+    min-height: 150px;
+    max-height: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    overflow-y: auto;
+  }
+
+  /* ===============================
+     BLOCOS
+  =============================== */
+
+  &__block {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    row-gap: 1rem;
+    width: 100%;
+    padding-bottom: 2rem;
+
+    box-shadow: none !important;
+
+    &__title {
+      @include font(16px, $primary, 500);
+      width: 80%;
+      text-align: center;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    &__desc {
+      @include font(14px, $fifth, 500);
+      width: 80%;
+      text-align: center;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    &__image {
+      width: 200px;
+      height: 200px;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+  }
+
+  /* ===============================
+     BOTÕES INTERNOS
+  =============================== */
+
+  &__button {
+    @include font(15px, $secondary, 500);
+    width: 80%;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 6px;
+    border: 2px solid $primary;
+    background-color: $primary;
+
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+
+    &__icon {
+      @include font(27px, inherit, 400);
+    }
+
+    &.isOutlined {
+      background-color: transparent;
+    }
+
+    &.isBlank {
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  /* ===============================
+     FOOTER (FIXO)
+  =============================== */
+
+  &__footer {
+    width: 100%;
+    border-top: 1px solid $fourth;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem $mobile-side-padding;
+  }
+}
+
+/* ===============================
+   RESPONSIVO
+=============================== */
+
+@media screen and (min-width: $tablet-screen-size) {
+  .SP__modal__footer {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: $desktop-screen-size) {
+  .SP__modal__footer {
+    padding: 1rem;
+  }
+}

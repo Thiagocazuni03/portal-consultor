@@ -1,0 +1,75 @@
+/* =====================================================
+   GRID RESPONSIVO — 12 COLUNAS
+===================================================== */
+.SP__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+}
+
+.SP__col {
+    &:not(:first-child) {
+        padding: 8px !important;
+    }
+    // padding: 8px !important;
+    padding: 8px 8px 8px 0px !important;
+    box-sizing: border-box;
+}
+
+/* Desktop */
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: calc(100% / 12 * #{$i});
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    @for $i from 1 through 12 {
+        .col-m-#{$i} {
+            width: calc(100% / 12 * #{$i});
+        }
+    }
+}
+
+/* =====================================================
+   CAMPOS PADRÃO
+===================================================== */
+.SP__input,
+.SP__textarea {
+    // display: flex;
+    // flex-direction: column;
+    gap: 6px;
+}
+
+.SP__input label,
+.SP__textarea label {
+    display: block;
+    font-size: 14px;
+    color: var(--primary);
+}
+
+/* Input */
+.SP__input input {
+    width: 100%;
+    margin-top:0.75rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--fourth);
+    background-color: var(--third);
+    color: var(--primary);
+    outline: none;
+}
+
+/* Textarea */
+.SP__textarea textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--fourth);
+    background-color: var(--third);
+    color: var(--primary);
+    resize: vertical;
+    outline: none;
+}

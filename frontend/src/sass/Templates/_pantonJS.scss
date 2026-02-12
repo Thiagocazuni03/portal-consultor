@@ -1,0 +1,144 @@
+.SP__panton{
+  width: calc(100% - 2rem);
+
+  &__inner{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    &__pallete{
+      width: 100%;
+      display: grid;
+      place-items: center;
+
+      .colpick{
+        width: min-content;
+        display: grid;
+        position: static;
+        border: none;
+        padding: 1rem;
+        background-color: $third;
+        border-radius: 6px;
+        grid-template-columns: 156px min-content min-content;
+        grid-template-rows: min-content 1fr;
+        column-gap: 1rem;
+        row-gap: 1rem;
+        height: auto;
+        grid-template-areas: 
+          "pallete hue hex"
+          "pallete hue new"
+        ;
+
+        .colpick_new_color,
+        .colpick_hex_field,
+        .colpick_field_letter,
+        .colpick_color_overlay1,
+        .colpick_color_overlay2,
+        .colpick_hue,
+        .colpick_color{
+          width: auto;
+          outline: none;
+          border: none;
+          border-radius: 3px;
+          position: relative;
+          top: unset;
+          left: unset;
+        }
+
+        .colpick_color{
+          grid-area: pallete;
+          width: 156px;
+          
+        }
+        
+        .colpick_hue{
+          width: 20px;
+          grid-area: hue;
+        }
+
+        .colpick_new_color{
+          grid-area: new;
+        }
+
+        .colpick_hex_field{
+          grid-area: hex;
+          width: 70px;
+          background-color: $secondary;
+          display: grid;
+          border-radius: 0px;
+          grid-template-columns: min-content 1fr;
+          border-bottom: 1px solid $primary;
+
+          .colpick_field_letter{
+            color: $primary;
+            width: auto;
+            padding-left: 0.5rem;
+            background-color: transparent;
+            border: none;
+          }
+
+          input{
+            color: $primary;
+            position: static;
+            text-align: center;
+            width: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+
+    #colorDiv{
+      width: 100%;
+      max-width: 100%;
+      cursor: pointer;
+      height: 250px;
+      overflow-y: scroll;
+
+      & > .SP__pantone__inner__colors__color{
+        display: none !important;
+      }
+
+      .SP__pantone__inner__colors{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 0.5rem;
+        row-gap: 0.5rem;
+
+        &__color{
+          background-color: $third;
+          border-radius: 6px;
+          overflow: hidden;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          transition: 200ms;
+          transform-origin: top center;
+          padding-top: 0;
+
+          &:last-child{
+            display: none !important;
+          }
+
+          p{
+            padding: 0.5rem 0;
+            text-align: center;
+            @include font(14px, $primary, 600);
+          }
+          div{
+            width: 100%;
+            aspect-ratio: 1/1;
+          }
+
+          &.isActive{
+            background-color: $fifth;
+            p{ color: $secondary; }
+          }
+        }
+      }
+    }
+  }
+}

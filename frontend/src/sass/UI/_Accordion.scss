@@ -1,0 +1,313 @@
+.SP__accordion {
+  width: 100%;
+  height: min-content;
+
+
+  &__item {
+    background-color: $third;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr min-content min-content;
+    column-gap: 0.5rem;
+    cursor: pointer;
+    min-height: 45px;
+    transition: 100ms;
+    grid-template-areas: 'title info search';
+
+    &:hover {
+      background-color: $fourth;
+    }
+  }
+
+  &__arrow {
+    color: $fifth;
+    width: 18px;
+    height: 18px;
+    grid-area: arrow;
+    display: none;
+    transition: 350ms
+  }
+
+  &__cancel {
+    @include flexCenter;
+    @include font(18px, $red, 700);
+    grid-area: cancel;
+    width: 26px;
+    height: 26px;
+    padding: 0.35rem;
+    border-radius: 6px;
+    background-color: $secondary;
+    transition: 350ms
+  }
+
+  &__search {
+    @include flexCenter;
+    @include font(18px, $fifth, 700);
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background-color: $secondary;
+    grid-area: search;
+    position: relative;
+
+    svg {
+      width: 60%;
+      height: 60%;
+    }
+
+    &__box {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 0.5rem);
+      display: flex;
+      padding: 0 0.5rem;
+      background-color: $secondary;
+      align-items: center;
+      column-gap: 0.5rem;
+      border-radius: 6px;
+      transform: translateY(-50%) scale(0);
+      transform-origin: right center;
+      transition: 300ms;
+      opacity: 0;
+
+      &__close {
+        font-weight: bold;
+        width: 14px !important;
+        height: 14px !important;
+      }
+
+      &.isOpen {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+      }
+
+      &__input {
+        height: 35px;
+        background-color: transparent;
+        outline: none !important;
+        border: none !important;
+        color: $primary;
+      }
+    }
+  }
+
+  &__info {
+    @include flexCenter;
+    color: $fifth;
+    width: 22px;
+    display: none;
+    height: 22px;
+    grid-area: info;
+  }
+
+  &__tip {
+    @include font(13px, $primary, 500);
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    line-height: 1.3;
+
+    &::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: $primary
+    }
+  }
+
+  &__title {
+    @include font(15px, $primary, 500);
+    grid-area: title;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    line-height: 1.2;
+  }
+
+  &__icon {
+    @include flexCenter;
+    border-radius: 3px;
+    width: 26px;
+    height: 26px;
+    padding: 0.35rem;
+    border: 1px solid transparent
+  }
+
+  &__desc {
+    @include font(13px, $fifth, 400);
+    grid-area: desc;
+  }
+
+  &__menu {
+    display: none;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex-direction: column;
+    max-height: 0px;
+    overflow-y: hidden;
+    height: min-content;
+    transition: 350ms;
+
+    .SP__accordion {
+      width: calc(100% - 3rem);
+      margin-bottom: 0;
+
+      &:last-child {
+        .SP__accordion__item {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &__item {
+        margin-bottom: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+    }
+  }
+
+  &.isComposition {
+    animation: fadeUp 300ms forwards;
+
+    &>.SP__accordion__item {
+      min-height: 58px;
+    }
+  }
+
+  &.showCollapseMenu {
+
+    &>.SP__accordion__item {
+      grid-template-areas: 'arrow title info search';
+      grid-template-columns: min-content 1fr min-content min-content;
+
+      &>.SP__accordion__title {
+        margin-left: 0.5rem;
+      }
+
+      &>.SP__accordion__arrow {
+        display: flex;
+      }
+    }
+
+    &>.SP__accordion__menu {
+      display: flex;
+    }
+  }
+
+  &.isProductPriceDetails {
+    &:not(:last-child):not(:only-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    &.hasTip {
+      .SP__accordion__item {
+        grid-template-areas:
+          "tip tip"
+          "title price"
+          "desc price"
+        ;
+        column-gap: 1rem;
+
+        .SP__money {
+          align-self: flex-end;
+        }
+      }
+    }
+
+    .SP__accordion__item {
+      display: grid;
+      grid-template-columns: 1fr min-content;
+      margin-bottom: 0;
+      row-gap: 0.5rem;
+      grid-template-areas:
+        "title price"
+        "desc price"
+      ;
+
+      .SP__accordion__title {
+        font-size: 16px;
+      }
+
+      .SP__accordion__desc {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &.hasInfo {
+    &>.SP__accordion__item {
+      &>.SP__accordion__info {
+        display: flex;
+      }
+    }
+  }
+
+  &.isHideColors {
+    opacity: 0.5;
+  }
+
+  &.isHideLevel {
+    width: 100% !important;
+
+    &>.SP__accordion__item {
+      display: none;
+    }
+
+    &>.SP__accordion__menu {
+      max-height: none !important;
+    }
+  }
+
+  &.isDefaultSelect {
+    animation: fadeUp 300ms forwards;
+
+    &>.SP__accordion__item {
+      grid-template-columns: 1fr min-content;
+      row-gap: 0.35rem;
+      grid-template-areas:
+        "title cancel"
+        "desc cancel"
+      ;
+    }
+  }
+
+  &.isColorAutomatic {
+    &>.SP__accordion__item {
+      grid-template-columns: 1fr min-content;
+      grid-template-areas: "title cancel";
+    }
+  }
+
+  &.isNoCombination {
+    &>.SP__accordion__item {
+      &>.SP__accordion__title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 26px;
+          height: 26px;
+          background-color: $secondary;
+          border-radius: 6px;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  &.isOpen {
+    &>.SP__accordion__menu {
+      overflow-y: scroll
+    }
+
+    &>.SP__accordion__item>.SP__accordion__arrow {
+      transform: rotate(-180deg)
+    }
+  }
+}

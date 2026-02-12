@@ -1,0 +1,50 @@
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+
+  //O container dos pontos
+  &__dots{
+    display: flex;
+    column-gap: 6px;
+    height: 28px;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    //Cada ponto
+    &__dot{
+      background-color: $primary;
+      border-radius: 50%;
+      animation: 1s loader-wave infinite;
+    }
+  }
+
+  //O título
+  &__title{
+    text-align: center;
+    color: $fifth;
+    font-size: 16px;
+  }
+}
+
+@keyframes loader-wave {
+  $height: 10px;
+
+  0% {
+    transform: translateY($height);
+  }
+
+  50% {
+    transform: translateY(-$height);
+  }
+
+  100% {
+    transform: translateY($height);
+  }
+}

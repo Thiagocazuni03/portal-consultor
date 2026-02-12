@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="light">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./sass/style.scss" />
+    <link rel="stylesheet" href="./assets/styles/jquery-ui.structure.css" />
+
+    <!-- Scripts -->
+    <script type="module" defer src="./pages/HomeController.js"></script>
+    <script defer src="init/handleIcons.js" type="module"></script>
+    <script defer src="init/handleTheme.js" type="module"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hd {
+            display: none;
+        }
+    
+        body {
+            min-height: 100vh;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.5)),
+                url('https://www.setglass.com.br/images/produtos/cortinas-e-persianas/cortinas-persianas-plissada-setglass.jpg');
+            background-size: cover;
+            min-width: 100%;
+            min-height:100%;    
+            /* padding: 48px 32px; */
+        }
+    
+        .welcome-wrapper {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+    
+        .welcome-wrapper span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #f59e0b;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+    
+        .welcome-wrapper h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #1f2937;
+        }
+    
+        .info {
+            margin: 32px auto;
+            padding: 18px 24px;
+            background-color: #f9fafb;
+            border-left: 4px solid #f59e0b;
+            font-size: 0.95rem;
+            border-radius: 10px;
+            color: #374151;
+            max-width: 720px;
+        }
+    
+        .cta {
+            margin-top: 40px;
+            text-align: center;
+        }
+    
+        h1.welcome{
+            color: white !important
+        }
+    
+        .cta a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #2563eb;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+            background-color: #eff6ff;
+        }
+    
+    
+        @media (max-width: 640px) {
+            .welcome-wrapper h1 {
+                font-size: 1.4rem;
+            }
+    
+            .welcome-wrapper {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+    <title>Portal | Dashboard</title>
+</head>
+
+<body>
+    <div class="SP__page ">
+        <!----------------------- HEADER ----------------------->
+        <header class="SP__header">
+            <h1 class="SP__header__title">Dashboard</h1>
+            <div class="SP__header__options" id="OPTIONS"></div>
+        </header>
+
+        <!----------------------- CONTEUDO ----------------------->
+        <main class="SP__content" id="DASHBOARD"></main>
+
+        <!-- <div class="welcome-wrapper-wrapper hd">
+            <div class="welcome-wrapper">
+                <span>Bem-vindo(a)</span>
+                <h1>
+                    Olá, <strong>Rodrigo</strong><br>
+                    17/12/2025 – (Individual)
+                </h1>
+            </div>
+        
+            <div class="info">
+                Você ainda <strong>não está participando</strong> do Programa de Pontos:
+                <strong>AMOPONTOS 2025</strong>
+            </div>
+        
+            <div class="cta">
+                <a href="./home.html">Clique aqui para participar</a>
+            </div>
+        </div> -->
+
+        <!----------------------- FOOTER ----------------------->
+    
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+.SP__modelsModal__master {
+  width: 100%;
+
+  .SP__modelsModal {
+    display: grid;
+    place-items: center;
+    box-shadow: none !important;
+    row-gap: 2rem;
+    padding: 3rem 2rem;
+
+    .ipErr {
+      @include font(15px, $secondary, 500);
+      width: 100%;
+      margin: 0.5rem 0;
+      background-color: $red !important;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+
+    &__title {
+      @include font(18px, $primary, 700); 
+      padding: 0 1.5rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    &__thumb {
+      width: 150px;
+      height: 150px;
+      border-radius: 6px;
+      object-fit: contain
+    }
+
+    &__help {
+      @include font(35px, $fifth, 700);
+      @include flexCenter;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 1rem;
+      left: 1rem;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+    }
+
+    &__measures {
+      width: 100%;
+      display: grid;
+      row-gap: 1rem;
+      place-items: center;
+
+      &__item {
+        @include font(16px, $primary, 400);
+
+        span {
+          @include font(17px, $primary, 600);
+          &::after { content: ': '}
+        }
+      }
+    }
+
+    &__classification{
+      width: 100%;
+
+      form > div {
+        max-height: 350px;
+        overflow-y: auto;
+
+        .SP__modelsModal__classification__item{
+          width: 100%;
+          display: block;
+          margin-bottom: 0.5rem;
+
+          &__inner{
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            width: 100%;
+            background-color: $third;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr min-content;
+            cursor: pointer;
+
+            &__input{
+              width: 0px;
+              height: 0px;
+              display: none
+            }
+            
+            &__label{
+              @include font(15px, $primary, 500);
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              column-gap: 1rem;
+              padding: 0;
+              cursor: pointer;
+
+              &::before{
+                content: '';
+                @include flexCenter;
+                font-family: 'Allinsys';
+                background-color: $secondary;
+                border-radius: 6px;
+                height: 26px;
+                width: 26px;
+                transition: 100ms;
+                font-weight: 700;
+                cursor: pointer;
+              }
+            }
+
+            &__info{
+              @include font(30px, $fifth, 700);
+              @include flexCenter;
+              width: 24px;
+              height: 24px;
+              background-color: transparent;
+              border: none;
+            }
+
+            //Alterar a label se o input estiver checkado
+            input:checked ~ label{
+              &::before{
+                color: $green;
+              }
+            }
+          }
+        }
+      }
+
+      &__empty{
+        @include font(16px, $fifth, 500);
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .swiper-pagination{
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    position: relative;
+    display: flex !important;
+
+    &-bullet{
+      width: 10px;
+      height: 10px;
+      border: none;
+      background-color: $fifth;
+    }
+  }
+}

@@ -1,0 +1,461 @@
+.SP__salepdf {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: $secondary;
+  padding: 1rem;
+
+  &::after {
+    content: '';
+    background-color: $secondary;
+    width: 100%;
+    height: 297mm;
+    position: absolute;
+    top: calc(100% - 2px);
+    left: 0;
+  }
+
+  &__label {
+    font-size: 16px;
+    color: $primary;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    column-gap: 1rem;
+    align-items: center;
+    border: 1px solid $fourth;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+
+    &__logo {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    &__info {
+      padding-left: 0.75rem;
+      border-left: 1px solid $fourth;
+
+      &__brand {
+        color: $fifth;
+        font-size: 10px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      &__title {
+        font-size: 14px;
+        color: $primary;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      &__date {
+        color: $fifth;
+        font-size: 12px;
+      }
+    }
+
+  }
+
+  &__people {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    &__reseller {
+      grid-column: span 2;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid $fourth;
+      display: grid;
+      grid-template-columns: min-content min-content 1fr;
+
+      &__left {
+        padding-right: 1rem;
+        border-right: 1px solid $fourth;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        &__name {
+          color: $primary;
+          font-weight: bold;
+          font-size: 14px;
+          margin-bottom: 0.5rem;
+          min-width: 150px;
+        }
+
+        &__role {
+          color: $fifth;
+          font-size: 12px;
+        }
+      }
+
+      &__middle {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-right: 1px solid $fourth;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+      }
+
+      &__right {
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        row-gap: 0.5rem;
+
+        &__address,
+        &__delivery {
+          font-size: 12px;
+          color: $primary;
+
+          &::before {
+            display: block;
+            font-size: 10px;
+            color: $fifth;
+            margin-bottom: 0.25rem;
+          }
+        }
+
+        &__address::before {
+          content: 'Endereço';
+        }
+
+        &__delivery::before {
+          content: 'Região de entrega';
+        }
+
+      }
+    }
+
+    &__card {
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid $fourth;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+
+      &__title {
+        color: $primary;
+        font-weight: bold;
+        font-size: 12px;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        align-content: center;
+        padding-right: 0.75rem;
+        margin-right: 0.75rem;
+        border-right: 1px solid $fourth;
+
+        &__role {
+          color: $fifth;
+          font-size: 10px;
+          margin-top: 0.5rem;
+        }
+      }
+
+
+      &__info {
+        display: flex;
+        align-items: center;
+        column-gap: 0.75rem;
+        font-size: 10px;
+        color: $primary;
+        white-space: nowrap;
+
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+
+        svg {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
+
+  &__products {
+    margin-bottom: 1rem;
+
+    &__product {
+      border: 1px solid $fourth;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      &__header {
+        width: 100%;
+        padding: 0.75rem;
+        border-bottom: 1px solid $fourth;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 80px 1fr min-content;
+        column-gap: 1rem;
+
+        &__image {
+          width: 100%;
+          aspect-ratio: 1/1;
+          object-fit: contain;
+        }
+
+        &__info {
+          padding-left: 1rem;
+          height: 100%;
+          display: grid;
+          align-content: center;
+          align-items: center;
+          border-left: 1px solid $fourth;
+
+          &__title {
+            font-weight: bold;
+            font-size: 14px;
+            color: $primary;
+            margin-bottom: 0.75rem;
+          }
+
+          &__index {
+            font-size: 12px;
+            color: $fifth;
+            margin-bottom: 0.5rem;
+          }
+
+          &__desc {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            column-gap: 2rem;
+
+            &__item {
+              &__title {
+                font-size: 10px;
+                color: $fifth;
+                margin-bottom: 0.25rem;
+              }
+
+              &__value {
+                color: $primary;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+
+        &__price {
+          font-weight: bold;
+          font-size: 18px;
+          color: $green;
+          white-space: nowrap;
+        }
+      }
+
+      &__body {
+        padding: 0.75rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+
+        &__left {
+          width: 100%;
+          height: 100%;
+          padding-right: 0.75rem;
+          border-right: 1px solid $fourth;
+        }
+
+        &__right {
+          padding-left: 0.75rem;
+          width: 100%;
+          height: 100%;
+        }
+
+        &__measures {
+          padding-bottom: 0.5rem;
+          margin-bottom: 1rem;
+          border-bottom: 1px solid $fourth;
+
+          &__title {
+            font-size: 12px;
+            color: $primary;
+            font-weight: bold;
+            margin-bottom: 1rem;
+          }
+
+          &__item {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+
+            &__piece {
+              font-size: 10px;
+              color: $primary
+            }
+
+            &__size {
+              font-size: 10px;
+              color: $fifth;
+            }
+          }
+        }
+
+        &__delivery {
+          padding-bottom: 0.5rem;
+          margin-bottom: 0.5rem;
+          border-bottom: 1px solid $fourth;
+
+          &__title {
+            font-size: 12px;
+            font-weight: bold;
+            color: $primary;
+            margin-bottom: 0.5rem;
+          }
+
+          &__description {
+            color: $fifth;
+            font-size: 10px;
+          }
+        }
+
+        &__warranty {
+          padding-bottom: 0.5rem;
+          margin-bottom: 0.5rem;
+          border-bottom: 1px solid $fourth;
+
+          &__title {
+            font-size: 12px;
+            font-weight: bold;
+            color: $primary;
+            margin-bottom: 0.5rem;
+          }
+
+          &__description {
+            color: $fifth;
+            font-size: 10px;
+          }
+        }
+
+        &__assembly {
+
+          &__group {
+
+            &:not(:last-child) {
+              padding-bottom: 0.5rem;
+              border-bottom: 1px solid $fourth;
+              margin-bottom: 0.5rem;
+            }
+
+            &__title {
+              font-size: 12px;
+              color: $primary;
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+              text-transform: capitalize;
+            }
+
+            &__option {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              column-gap: 2rem;
+              line-height: 1.25;
+              font-size: 10px;
+              padding: 0.15rem 0;
+
+              &__label {
+                color: $fifth;
+              }
+
+              &__selected {
+                color: $primary;
+                text-align: right;
+
+                &__sublabel {
+                  color: $fifth;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__summary {
+    width: 100%;
+    height: min-content;
+
+    &__header {
+      width: 100%;
+      background-color: $secondary;
+      padding: 0.75rem;
+      display: flex;
+      font-size: 12px;
+      font-weight: bold;
+      color: $primary;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid $fourth;
+      border-radius: 6px 6px 0 0;
+    }
+
+    &__body {
+      border: 1px solid $fourth;
+      border-top: none;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0 0 6px 6px;
+
+      &__row {
+        padding: 0.5rem 0;
+        display: flex;
+        font-size: 12px;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $fourth;
+        }
+
+        &:last-child {
+          font-weight: bold;
+        }
+
+        &__title {
+          color: $primary;
+        }
+
+        &__total {
+          color: $fifth;
+        }
+      }
+    }
+  }
+}
+
+.SP__salepdf__container {
+  position: relative;
+  width: 210mm;
+  max-width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  max-height: 297mm;
+}

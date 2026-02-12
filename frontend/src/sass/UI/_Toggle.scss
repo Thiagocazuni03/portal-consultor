@@ -1,0 +1,36 @@
+.toggle {
+  cursor: pointer;
+  width: 52px;
+  height: 28px;
+  background-color: $third;
+  border-radius: 50px;
+  transition: 150ms;
+  position: relative;
+
+  //Hover
+  &:hover{
+    background-color: $fourth;
+  }
+
+  //Quando estiver ativa
+  &.isActive{
+    background-color: var(--active-color) !important;
+
+    .toggle__handle{
+      left: 100%;
+      transform: translate(calc(-100% - 3px), -50%);
+    }
+  }
+
+  &__handle{
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    height: calc(100% - 3px * 2);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: $secondary;
+    transform: translate(0%, -50%);
+    transition: 200ms;
+  }
+}

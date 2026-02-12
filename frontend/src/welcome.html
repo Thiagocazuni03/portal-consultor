@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-vindo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonte elegante e corporativa -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.2),
+                    rgba(0,0, 0, 0.5)),
+                url('https://www.setglass.com.br/images/produtos/cortinas-e-persianas/cortinas-persianas-plissada-setglass.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 960px;
+            height:100vh;
+            padding: 48px 32px;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.2),
+                    rgba(0,0, 0, 0.5)),
+                url('https://www.setglass.com.br/images/produtos/cortinas-e-persianas/cortinas-persianas-plissada-setglass.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .welcome-wrapper {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .welcome span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #f59e0b;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .welcome h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #1f2937;
+        }
+
+        .info {
+            margin: 32px auto;
+            padding: 18px 24px;
+            background-color: #f9fafb;
+            border-left: 4px solid #f59e0b;
+            font-size: 0.95rem;
+            border-radius: 10px;
+            color: #374151;
+            max-width: 720px;
+        }
+
+        .cta {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color:white !important
+        }
+
+        .cta a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #2563eb;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+            background-color: #eff6ff;
+        }
+
+
+        @media (max-width: 640px) {
+            .welcome h1 {
+                font-size: 1.4rem;
+            }
+
+            .wrapper {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="welcome">
+            <span>Bem-vindo(a)</span>
+            <h1>
+                Olá, <strong>Rodrigo</strong><br>
+                17/12/2025 – (Individual)
+            </h1>
+        </div>
+
+        <div class="info">
+            Você ainda <strong>não está participando</strong> do Programa de Pontos:
+            <strong>AMOPONTOS 2025</strong>
+        </div>
+
+        <div class="cta">
+            <a href="./home.html">Clique aqui para participar</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

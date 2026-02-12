@@ -1,0 +1,52 @@
+html {
+  --red: #C84C4F;
+  --orange: #efb36a;
+  --green: #488b65;
+  --green2: #2ecc71;
+
+  &.light {
+    --primary: #2C2E35;
+    --secondary: #FFFFFF;
+    --third: #F5F5F5;
+    --fourth: #EBECEC;
+    --fifth: #B0B1B3;
+    --backdrop: rgba(0, 0, 0, 0.35);
+    --shadow: rgb(0 0 0 / 0.075);
+  }
+
+  &.dark {
+    --primary: #b8b8b8;
+    --secondary: #2e2f31;
+    --third: #323436;
+    --fourth: #37393c;
+    --fifth: #888c8f;
+    --backdrop: rgba(142, 142, 142, 0.35);
+    --shadow: rgb(0 0 0 / 0.15);
+  }
+
+}
+
+//Fontes
+$font-family: "Google Sans", sans-serif;
+
+//Tamanhos de tela
+$desktop-screen-size: 1280px;
+$tablet-screen-size: 600px;
+
+//Padding
+$mobile-side-padding: 1.5rem;
+$tablet-side-padding:  1.5rem;
+$desktop-side-padding: 0rem;
+
+//Colors 
+$orange: var(--orange);
+$green: var(--green);
+$red: var(--red);
+$shadow: var(--shadow);
+
+//Paleta de cores
+$primary: var(--primary);
+$secondary: var(--secondary);
+$third: var(--third);
+$fourth: var(--fourth);
+$fifth: var(--fifth);

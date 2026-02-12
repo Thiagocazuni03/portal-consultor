@@ -1,0 +1,152 @@
+.SP__dropdown {
+
+  &.isOpen {
+    & > .SP__dropdown__content {
+      overflow-y: scroll;
+      opacity: 1;
+    }
+
+    &>.SP__dropdown__header {
+      &>.SP__dropdown__header__options {
+        &>.SP__dropdown__header__options__icon[class*="ic-down"] {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__header {
+    display: grid;
+    width: 100%;
+    padding: 1rem;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 500ms;
+    grid-template-columns: 1fr min-content;
+    column-gap: 1rem;
+
+    &__title {
+      color: $primary;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    &__options {
+      display: flex;
+      flex-direction: row-reverse;
+      column-gap: 0.75rem;
+      align-items: center;
+
+      &__icon {
+        color: $fifth;
+        width: 20px;
+        height: 20px;
+        font-weight: 600;
+        transition: 300ms;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    overflow-y: hidden;
+    height: min-content;
+    padding: 0 1rem;
+    border-radius: 6px;
+    transition: 300ms;
+    opacity: 0;
+  }
+
+  &__footer {
+    margin-top: 1rem;
+    width: 100%;
+    border-top: 1px solid $fourth;
+    padding-top: 1rem;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &.isFinishedOrderDropdown,
+  &.isOrderDetailsDropdown {
+    opacity: 0;
+    animation: fadeUp 500ms forwards;
+    margin: 0 2rem;
+
+    &.isProducts {
+      &>.SP__dropdown__content {
+        max-height: none !important;
+      }
+    }
+
+    .SP__dropdown__content {
+      padding: 0;
+    }
+
+    .SP__dropdown__header {
+      padding: 0.75rem 0;
+      border-radius: 0px;
+    }
+  }
+
+  &.isAssemblyDetailsDropdown {
+    width: 100%;
+
+    .SP__dropdown__header {
+      padding: 0.25rem 0;
+    }
+  }
+
+  &.isClassificationDropdown{
+    width: 85%;
+
+    .SP__dropdown__header {
+      background-color: $third;
+      margin-bottom: 0;
+    }
+
+    .SP__dropdown__content {
+      padding: 0;
+      padding-left: 2rem;
+    }
+  }
+
+  &.isRuleDetails{
+    width: 100%;
+
+    .SP__dropdown__header__title{
+      font-size: 18px !important;
+    }
+    .SP__dropdown__header {
+      padding: 0.25rem 0;
+    }
+    .SP__dropdown__content {
+      padding: 0;
+    }
+  }
+
+  &.isProductDetailsDropdown {
+    animation: fadeUp 500ms forwards;
+    opacity: 0;
+    margin: 0 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid $fourth;
+
+    &.isOpen {
+      .SP__dropdown__header {
+        padding-bottom: 1rem;
+      }
+    }
+
+    .SP__dropdown__content {
+      padding: 0;
+    }
+
+    .SP__dropdown__header {
+      padding: 0.5rem 0;
+    }
+  }
+}

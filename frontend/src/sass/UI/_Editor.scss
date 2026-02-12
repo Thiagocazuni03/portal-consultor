@@ -1,0 +1,90 @@
+.SP__editor {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid $fourth;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-content: flex-start;
+  max-height: 450px;
+  overflow-y: overlay;
+  overflow-x: overlay;
+  grid-template-areas: 
+    'header header'
+    'sidebar code'
+    'footer footer'
+  ;
+
+  &__code {
+    width: min-content;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    white-space: pre-wrap;
+    color: $primary;
+    min-width: 100%;
+    font-size: 16px;
+    overflow: scroll;
+    letter-spacing: 1px;
+    font-family: 'Google Sans', sans-serif;
+    line-height: 1.5;
+    grid-area: code;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    resize: none;
+    background-color: transparent;
+
+
+  }
+  
+  &__sidebar{
+    grid-area: sidebar;
+    width: 100%;
+    height: min-content;
+    background-color: $third;
+    height: 100%;
+    padding: 1rem 0;
+    border-right: 1px solid $fourth;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__dot{
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      background-color: $fourth;
+      border-radius: 50%;
+    }
+
+    &__number{
+      font-size: 16px;
+      color: $fifth;
+      line-height: 1.5;
+    }
+  }
+
+  &__header{
+    grid-area: header;
+
+    &:empty{
+      display: none;
+    }
+  }
+
+  &__footer{
+    grid-area: footer;
+
+    &:empty{
+      display: none;
+    }
+  }
+}
+
+::highlight(editor-variable) {
+  color: #ad26ad !important;
+  text-decoration: underline;
+}

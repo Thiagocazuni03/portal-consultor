@@ -1,0 +1,92 @@
+.SP__money {
+  display: grid;
+  white-space: nowrap;
+  position: relative;
+  grid-template-columns: repeat(4, min-content);
+  align-items: flex-end;
+  row-gap: 0.5rem;
+  width: fit-content;
+  transition: 100ms;
+  grid-template-areas:
+    "description description description description"
+    "currency integer decimal none"
+  ;
+
+  //Caso não possuir descrição
+  &:not(:has(.SP__money__description)) {
+    grid-template-areas:
+      "currency integer decimal none";
+  }
+
+  &.isWarrantyMoney{
+    align-self: flex-end;
+
+    .SP__money__integer{
+      font-size: 20px
+    }
+    .SP__money__decimal{
+      font-size: 16px
+    }
+    .SP__money__currency{
+      font-size: 14px
+    }
+  }
+
+  //Descrição
+  &__description {
+    @include font(13px, $fifth, 700);
+    text-transform: uppercase;
+    grid-area: description;
+    white-space: nowrap
+  }
+
+  //Cobrança
+  &__currency {
+    @include font(17px, $primary, 700);
+    transform: translateY(-1px);
+    grid-area: currency;
+    margin-right: 4px;
+  }
+
+  //Valor Inteiro
+  &__integer {
+    @include font(24px, $primary, 700);
+    grid-area: integer;
+  }
+
+  //Valor decimal
+  &__decimal {
+    @include font(20px, $primary, 700);
+    grid-area: decimal;
+  }
+}
+
+@media screen and (min-width: $tablet-screen-size) {
+  .SP__money__description {
+    font-size: 14px;
+  }
+  .SP__money__currency{
+    font-size: 17px;
+  }
+  .SP__money__integer{
+    font-size: 25px;
+  }
+  .SP__money__decimal{
+    font-size: 21px;
+  }
+}
+
+@media screen and (min-width: $desktop-screen-size) {
+  .SP__money__description {
+    font-size: 15px;
+  }
+  .SP__money__currency{
+    font-size: 17px;
+  }
+  .SP__money__integer{
+    font-size: 26px;
+  }
+  .SP__money__decimal{
+    font-size: 22px;
+  }
+}

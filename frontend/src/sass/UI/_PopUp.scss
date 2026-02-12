@@ -1,0 +1,42 @@
+.SP__popup {
+  --bg-color: $green;
+  
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background-color: $secondary;
+  border-radius: 4px;
+  column-gap: 0.5rem;
+  transition: 300ms;
+  width: 80%;
+  max-width: 460px;
+  padding: 0.75rem;
+  left: 50%;
+  backdrop-filter: blur(3px);
+  background-color: rgb(from var(--bg-color) r g b / 60%);
+  cursor: pointer;
+  box-shadow: 0 5px 10px 0 $shadow;
+
+  &[active=true] {
+    transform: translate(-50%, 100%);
+  }
+
+  &[active=false] {
+    transform: translate(-50%, -100%);
+  }
+
+  &__message {
+    @include font(16px, white, 500);
+    line-height: 1.35;
+    padding-left: 0.5rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__icon {
+    color: white;
+    width: 22px;
+    height: 22px;
+  }
+}
