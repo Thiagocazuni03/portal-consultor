@@ -19,10 +19,12 @@ export default class LoginTab extends Tab {
          leftButtonText: 'Esqueci minha senha',
          rightButtonText: 'Criar Conta'
       })
+   
+
 
       //Configurando elementos
       this.rightButton.removeClass('isFilled').addClass('isOutlined')
-
+   
       //Formulário de login
       this.loadingModal = new LoadingModal({ uniqueToken: 'LOGIN_LOADING', message: 'Estamos realizando seu login.', hasContent:false })
       //  this.loadingModal.openModal()
@@ -73,6 +75,7 @@ export default class LoginTab extends Tab {
    }
 
    async tryToLogin() {
+      //// isso é um comentario
       UserStorage.isSessionOkay()
          ? this.goToDashboard()
          : this.loginWithFormValues()
@@ -212,6 +215,8 @@ export default class LoginTab extends Tab {
 
       }
    }
+
+
 
    goToDashboard() {
       PopUp.triggerSuccess('Login realizado com sucesso. Você será redirecionado.', this.tab, 'LOGIN_SUCCESS')

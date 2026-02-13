@@ -6,7 +6,7 @@ export default class Modal {
    static openModals = {}
 
    constructor(config) {
-
+   
       this.config = {
          uniqueToken: null,
          canBeClosed: true,

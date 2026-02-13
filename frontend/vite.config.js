@@ -19,7 +19,7 @@ export default defineConfig({
       rollupOptions: {
          input: [ 
             'src/home.html',
-            'src/welcome.html',
+            'src/welcome.html', 
             'src/index.html',
             // 'src/catalog.html',
             // 'src/dashboard.html',

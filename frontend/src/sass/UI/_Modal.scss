@@ -3,6 +3,23 @@
 ////////////////////////////////////////
 
 .SP__modal {
+ 
+  width: 400px;
+  max-width: 90%;
+  min-height: auto;
+  max-height: 95%;
+  padding-top: 3rem;
+  padding-bottom: 100px;
+  background-color: $secondary;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 350ms;
 
   /* ===============================
      POSICIONAMENTO
@@ -23,28 +40,7 @@
     padding: 1rem;
   }
 
-  width: 400px;
-  max-width: 90%;
-  min-height: auto;
-  max-height: 95%;
-
-  padding-top: 3rem;
-  padding-bottom: 100px;
-
-  background-color: $secondary;
-  border-radius: 12px;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 15;
-
-  overflow: hidden;
-  pointer-events: none;
-
-  transform: translate(-50%, -50%) scale(0);
-  transition: 350ms;
-
+  
   &.isShown {
     transform: translate(-50%, -50%) scale(1);
     pointer-events: all;
@@ -79,7 +75,7 @@
   &.isPantoneModal:not(.SP__overlay),
   &.isFormModal:not(.SP__overlay) {
     max-height: 95vh;
-  }
+  } 
 
   &.isFormModal:not(.SP__overlay) {
     padding-top: 1rem;
